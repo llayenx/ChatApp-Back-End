@@ -18,7 +18,8 @@ const Conversation = db.define("conversation", {
     
     type :{
         type:DataTypes.STRING(15),
-        allowNul : false
+        allowNul : false,
+        defaultValue: "pareja"
     },
     userconversationId: {
         type: DataTypes.INTEGER,

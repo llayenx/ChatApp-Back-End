@@ -1,7 +1,7 @@
 const Conversation = require("../models/conversation.models")
 
 class conversationServices{
-    static async create(newUser){
+    static async create(newConversation){
         try {
             const conversationCreated = await Conversation.create(newConversation)
             return conversationCreated
