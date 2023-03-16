@@ -6,7 +6,9 @@ const initModels = require("./models/initmodels")
 const userRoutes = require("./routes/user.routes")
 const conversationRoutes = require("./routes/conversation.routes")
 const messageRoutes = require("./routes/message.routes")
+const participantRoutes = require("./routes/participant.routes")
 const authRoutes = require("./routes/auth.routes")
+
 const errorHandlerRoute = require("./routes/errrorHandler.routes")
 
 initModels()
@@ -42,6 +44,7 @@ app.use(userRoutes)
 app.use(conversationRoutes)
 app.use(messageRoutes)
 app.use(authRoutes)
+app.use(participantRoutes)
 
 errorHandlerRoute(app)
 

@@ -3,6 +3,7 @@ const Conversation = require("./conversation.models")
 const Message = require("./message.models")
 const Participant = require("./participant.models")
 
+
 const initModels = ()=>{
     User.hasMany(Conversation, {foreignKey: "userconversationId"})
     Conversation.belongsTo(User, {foreignKey: "userconversationId"})
@@ -13,10 +14,14 @@ const initModels = ()=>{
     Conversation.hasMany(Message, {foreignKey: "conversationmessageId"})
     Message.belongsTo(User,{foreignKey: "conversationmessageId"})
 
+    
+
     Conversation.hasMany(Participant, {foreignKey: "conversationparticipanteId"})
     Participant.belongsTo(Conversation,{foreignKey: "conversationparticipanteId"})
 
-    
+    User.hasMany(Participant, {foreignKey: "userparticipanteId"})
+    Participant.belongsTo(User, {foreignKey: "userparticipanteId"})
+
 
  
 }

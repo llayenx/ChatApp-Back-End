@@ -12,18 +12,29 @@ const createUser = async(req, res, next) =>{
     }  
 }
 
-const getAllUsers= async(req, res)=>{
+const getAllUsers= async(req, res, next)=>{
     try {
         const allUsers= await userServices.getAll()
         res.json(allUsers)
         
     } catch (error) {
-        res.status(400).json(error)
+       next(error)
         
+    }
+}
+const getConversationId = async(req, res, next)=>{
+    try {
+        const{id} = req.params
+        const result = await userServices.getOneUser(id)
+        res.status(200).json(result)
+        
+    } catch (error) {
+        next(error)
     }
 }
 
 module.exports = {
     createUser,
-    getAllUsers
+    getAllUsers,
+    getConversationId,
 }
