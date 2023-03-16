@@ -7,6 +7,7 @@ const userRoutes = require("./routes/user.routes")
 const conversationRoutes = require("./routes/conversation.routes")
 const messageRoutes = require("./routes/message.routes")
 const authRoutes = require("./routes/auth.routes")
+const errorHandlerRoute = require("./routes/errrorHandler.routes")
 
 initModels()
 
@@ -41,6 +42,10 @@ app.use(userRoutes)
 app.use(conversationRoutes)
 app.use(messageRoutes)
 app.use(authRoutes)
+
+errorHandlerRoute(app)
+
+
 
 app.listen(PORT, () =>{
     console.log("Servidor corriendo en el puerto 8002")
