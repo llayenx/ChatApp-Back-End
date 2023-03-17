@@ -1,4 +1,6 @@
 const User = require("../models/user.models")
+const Participant = require("../models/participant.models")
+const Conversation = require("../models/conversation.models")
 
 class userServices {
     static async getUser(email) {

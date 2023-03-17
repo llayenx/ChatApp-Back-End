@@ -24,7 +24,8 @@ const Conversation = db.define("conversation", {
     userconversationId: {
         type: DataTypes.INTEGER,
         allownul: false,
-        field: "userconversation_id"
+        field: "userconversation_id",
+        defaultValue: 0
      },
 
 })

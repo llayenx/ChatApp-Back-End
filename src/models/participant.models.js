@@ -11,13 +11,13 @@ const Participant = db.define ("participants", {
 
     conversationparticipanteId: {
         type: DataTypes.INTEGER,
-        allownul: false,
+        allowNull: false,
         field: "conversationparticipante_id"
      },
 
      userparticipanteId: {
         type: DataTypes.INTEGER,
-        allownul: false,
+        allowNull: false,
         field: "userparticipante_id"
      },
 

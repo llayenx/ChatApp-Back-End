@@ -5,8 +5,7 @@ const Participant = require("./participant.models")
 
 
 const initModels = ()=>{
-    User.hasMany(Conversation, {foreignKey: "userconversationId"})
-    Conversation.belongsTo(User, {foreignKey: "userconversationId"})
+  
 
     User.hasMany(Message,{foreignKey:"usermessageId"})
     Message.belongsTo(User, {foreignKey: "usermessageId"})

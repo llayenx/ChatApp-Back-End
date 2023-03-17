@@ -1,6 +1,14 @@
+const { Result } = require("express-validator")
 const conversationServices = require("../services/conversation.services")
 
+// const createConversationPair = async(req, res, next) =>{
+//     try {
 
+        
+//     } catch (error) {
+//         next(error)
+//     }
+// }
 const createConversation = async(req, res) =>{
     try {
         const newConversation = req.body
@@ -34,11 +42,21 @@ const deleteConversation = async (req,res)=>{
     }
 }
 
+const getOneConversation = async(req, res, next)=>{
+    try {
+        const{id} = req.params
+        const result = await conversationServices.getOneConversationMessage(id)
+        res.status(200).json(result)      
+    } catch (error) {
+        next(error)
+    }
+}
+
 
 
 module.exports = {
     createConversation,
     getAllConversation,
     deleteConversation,
-    
+    getOneConversation,
 }
