@@ -1,4 +1,5 @@
 const userServices = require("../services/user.services")
+const AuthServices = require ("../services/auth.services")
 const bcrypt = require("bcrypt")
 
 const userLogin = async(req, res, next) =>{
@@ -21,7 +22,8 @@ const userLogin = async(req, res, next) =>{
             })
           }
           const{id, username, firstname, lastname,} = user
-          res.json ({id, username, email, firstname, lastname})
+          const token = AuthServices.genToken({id, username, firstname, lastname})
+          res.json ({id, username, email, firstname, lastname, token})
     } catch (error) {
            next (error)
     }
