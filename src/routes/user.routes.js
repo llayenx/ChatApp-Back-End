@@ -4,12 +4,13 @@ const {createUser} = require("../controllers/user.controllers")
 const{getAllUsers} = require("../controllers/user.controllers")
 const {getConversationId} = require("../controllers/user.controllers")
 const {createUserValidator} = require("../validator/user.validator")
+const authenticate = require("../middleware/auth.middleware")
 
 const router = Router()
 
 router.post("/api/v1/users",createUserValidator, createUser)
 
-router.get("/api/v1/users", getAllUsers)
+router.get("/api/v1/users", authenticate, getAllUsers)
 
 router.get("/api/v1/users/conversations/:id", getConversationId)
 
