@@ -8,6 +8,7 @@ const conversationRoutes = require("./routes/conversation.routes")
 const messageRoutes = require("./routes/message.routes")
 const participantRoutes = require("./routes/participant.routes")
 const authRoutes = require("./routes/auth.routes")
+const transporter = require("./utils/mailer")
 
 const errorHandlerRoute = require("./routes/errrorHandler.routes")
 
@@ -20,6 +21,22 @@ app.use(morgan("dev"))
 app.use(express.json())
 
 const PORT = 8002
+
+try {
+    const info = transporter.sendMail({
+        from:"llayenx@gmail.com",
+        to : "saintpierreperonvil@gmail.com",
+        subject: "Probando mi primer nodemailer",
+        html: "<h1> Bienvenido al chatAPI </h1>"
+    })
+    console.log(info)
+} catch (error) {
+    console.log(error)
+}
+
+
+
+
 
 db.authenticate()
 .then(() => {
