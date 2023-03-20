@@ -22,19 +22,6 @@ app.use(express.json())
 
 const PORT = 8002
 
-try {
-    const info = transporter.sendMail({
-        from:"llayenx@gmail.com",
-        to : "saintpierreperonvil@gmail.com",
-        subject: "Probando mi primer nodemailer",
-        html: "<h1> Bienvenido al chatAPI </h1>"
-    })
-    console.log(info)
-} catch (error) {
-    console.log(error)
-}
-
-
 
 
 
@@ -45,7 +32,7 @@ db.authenticate()
 .catch((error) => console.log(error))
 
 
-db.sync({alter: true})
+db.sync({force: true})
 .then(() => console.log("base de datos syncronizada"))
 .catch((error) => console.log(error))
 

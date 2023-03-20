@@ -22,11 +22,17 @@ const User = db.define("users", {
             isEmail:true
         }
     },
+    isVerified :{
+        type : DataTypes.BOOLEAN,
+        defaultValue: false
+
+    },
     password: {
         type: DataTypes.STRING(200),
         unique: true,
         allownul: false
      },
+
   
     firstname: {
     type: DataTypes.STRING(30),
