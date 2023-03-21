@@ -37,11 +37,13 @@ const User = db.define("users", {
     firstname: {
     type: DataTypes.STRING(30),
     allowNull: false,
+    defaultValue:"John"
      },
 
     lastname: {
         type: DataTypes.STRING(30),
         allowNull: false,
+        defaultValue: "Doe"
         }
     
 
